@@ -39,7 +39,7 @@ public class player : MonoBehaviour
             Physics.IgnoreCollision(other, GetComponent<Collider>());
             other.GetComponent<HingeJoint>().connectedBody = rigCatch;
         }
-        if (other.name == "地板" && ani.GetCurrentAnimatorStateInfo(0).IsName("Damage"))
+        if (other.name == "地板" && ani.GetCurrentAnimatorStateInfo(0).IsName("catch"))
         {
            
             GameObject.Find("Wooden Crate").GetComponent<HingeJoint>().connectedBody = null;
@@ -75,7 +75,7 @@ public class player : MonoBehaviour
 
     private void Attack()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(1))
         {
             ani.SetTrigger("attack");
            
@@ -102,7 +102,7 @@ public class player : MonoBehaviour
 
     private void Catch()
     {
-        if(Input.GetMouseButtonDown(1))
+        if(Input.GetMouseButtonDown(0))
         {
             ani.SetTrigger("catch");
         }
